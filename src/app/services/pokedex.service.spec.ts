@@ -17,7 +17,7 @@ describe('PokedexService', () => {
   });
   
   it('should call httpClient.get', () => {
-    spyOn(httpClient, 'get')
+    spyOn(httpClient, 'get').and.returnValue(of(mockResponse))
     service.getPokemonInfos("Exeggcute");
     expect(httpClient.get).toHaveBeenCalledTimes(1);
   });
